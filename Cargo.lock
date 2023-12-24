@@ -3,16 +3,6 @@
 version = 3
 
 [[package]]
-name = "VT-API-Handler"
-version = "0.1.0"
-dependencies = [
- "reqwest",
- "serde_json",
- "structopt",
- "tokio",
-]
-
-[[package]]
 name = "addr2line"
 version = "0.21.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1125,6 +1115,16 @@ name = "version_check"
 version = "0.9.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
+
+[[package]]
+name = "virus_total_api_handler"
+version = "0.1.0"
+dependencies = [
+ "reqwest",
+ "serde_json",
+ "structopt",
+ "tokio",
+]
 
 [[package]]
 name = "want"

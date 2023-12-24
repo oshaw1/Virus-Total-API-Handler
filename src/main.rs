@@ -1,6 +1,7 @@
 use std::error::Error;
 use std::fs;
 use std::io::{self};
+use serde_json::Value;
 
 fn list_files_in_uploads() -> Result<String, Box<dyn Error>> {
     println!("Type the exact file name of the file you want to upload:");
@@ -83,6 +84,20 @@ async fn upload_file(
         .send()
         .await?;
 
-    println!("Response: {:?}", response.text().await?);
+    // Check if the response is successful (status code 200)
+    if response.status().is_success() {
+        // Parse the JSON response
+        let json: Value = response.json().await?;
+        // Check if the JSON response contains 'data'
+        if let Some(data) = json.get("data") {
+            println!("Response data: {:?}", data);
+            // Handle the response data as needed
+        } else {
+            println!("No 'data' field found in the response.");
+        }
+    } else {
+        println!("Request failed with status code: {:?}", response.status());
+    }
+
     Ok(())
 }

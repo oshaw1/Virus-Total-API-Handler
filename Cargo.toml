@@ -1,5 +1,5 @@
 [package]
-name = "VT-API-Handler"
+name = "virus_total_api_handler"
 version = "0.1.0"
 edition = "2021"
 
